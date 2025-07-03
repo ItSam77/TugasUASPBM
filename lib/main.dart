@@ -6,11 +6,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL']!,
+    url: dotenv.env['API_URL']!,
     anonKey: dotenv.env['API_KEY']!,
   );
-  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
